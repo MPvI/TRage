@@ -1,0 +1,9 @@
+<div *ngIf="valueMenu" class="w3-text-white" style="position: absolute; width: 100%; height: 100%; display: flex; justify-content: space-around; align-items: center; background-color: rgba(0,0,0,0.7); z-index: 10" (click)=" $event.stopPropagation()">
+    <i class="fa fa-cloud-download w3-xlarge" aria-hidden="true"></i>
+    <i class="fa fa-cloud-upload w3-xlarge" aria-hidden="true"></i>
+    <i *ngIf="favoriteService.getActiveFav() | async as activeFav" class="fa fa-star w3-xlarge {{activeFav.has(leaf) ? 'w3-text-yellow' : ''}}" (click)="activeFav.toggle(leaf);"></i>
+    <i *ngIf="dataService.docLoaded()" class="fa fa-info w3-xlarge" aria-hidden="true" (click)="dataService.getInfoFor(leaf.fullPath)"></i>
+    <i class="fa fa-close w3-ripple w3-xlarge" aria-hidden="true" (click)="toggleMenu($event)"></i>
+</div>
+<my-value [leaf]="leaf" class="w3-ripple"></my-value>
+<i class="fa fa-ellipsis-v w3-ripple" aria-hidden="true" (click)="toggleMenu($event)" style="position: absolute; padding: 2px; margin: 2px; right: 2px; top: 1px"></i>

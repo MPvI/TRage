@@ -1,0 +1,61 @@
+<!-- /////////////////////LABEL///////////////////// -->
+<div style="padding: 2px 0 2px 0">
+  <i class="fa w3-border w3-round-small" [ngClass]="{'fa-cloud': leaf.status==0,'w3-text-orange': leaf.status==0,'fa-spinner': leaf.status==1, 'w3-text-blue': leaf.status==1,'fa-close': leaf.status==2,'w3-text-red': leaf.status==2,'fa-check': leaf.status==3,'w3-text-green': leaf.status==3}" style="padding: 2px 2px;" aria-hidden="true"></i>
+  <label class="w3-label w3-text-dark-grey w3-row w3-left-align">{{showFullName ? leaf.fullPath : leaf.name}}</label>
+</div>
+  <!-- /////////////////////VALUE///////////////////// -->
+<form *ngIf="leaf.type == 'xsd:string'">
+  <textarea class="w3-input w3-small" style="width: 100%;" [(ngModel)]="currVal" [ngModelOptions]="{standalone: true}" [disabled]="!leaf.writable" [ngStyle]="{'height': currVal ? currVal.length < 30 ? 35+'px' : 200+'px' : 0+'%',  'text-align': currVal ? currVal.length > 30 ? 'left' : 'right' : 'right'}"></textarea>
+  <button (click)="leaf.send(currVal)" *ngIf="leaf.writable && currVal!==initVal" class="w3-btn-block w3-light-green w3-animate-zoom">
+    <i class="fa fa-save" aria-hidden="true"></i>
+  </button>
+</form>
+
+<form *ngIf="leaf.type == 'xsd:int'">
+  <input
+    class="w3-input w3-small w3-right-align"
+    type="number" min="−2147483648" max="2147483647"
+    [(ngModel)]="currVal" [ngModelOptions]="{standalone: true}" [disabled]="!leaf.writable">
+  <button (click)="leaf.send(currVal)" *ngIf="leaf.writable && currVal!==initVal" class="w3-btn-block w3-light-green w3-animate-zoom">
+    <i class="fa fa-save" aria-hidden="true"></i>
+  </button>
+</form>
+
+<form *ngIf="leaf.type == 'xsd:unsignedInt'">
+  <input
+    class="w3-input w3-small w3-right-align"
+    type="number" min="0" max="4294967295"
+    [(ngModel)]="currVal" [ngModelOptions]="{standalone: true}" [disabled]="!leaf.writable">
+  <button (click)="leaf.send(currVal)" *ngIf="leaf.writable && currVal!==initVal" class="w3-btn-block w3-light-green w3-animate-zoom">
+    <i class="fa fa-save" aria-hidden="true"></i>
+  </button>
+</form>
+
+
+<form *ngIf="leaf.type == 'xsd:unsignedLong'">
+  <input
+    class="w3-input w3-small w3-right-align"
+    type="number" min="0" max="18446744073709551615"
+    [(ngModel)]="currVal" [ngModelOptions]="{standalone: true}" [disabled]="!leaf.writable">
+  <button (click)="leaf.send(currVal)" *ngIf="leaf.writable && currVal!==initVal" class="w3-btn w3-light-green w3-animate-zoom">
+    <i class="fa fa-save" aria-hidden="true"></i>
+  </button>
+</form>
+
+<form *ngIf="leaf.type == 'xsd:boolean'" class="w3-right">
+  <div class="switch">
+    <input
+      type="checkbox"
+      [(ngModel)]="boolVal" [ngModelOptions]="{standalone: true}" [disabled]="!leaf.writable" class="checkbox">
+    <div class="slider round" (click)="sendBool($event)"></div>
+  </div>
+</form>
+
+<form *ngIf="leaf.type == 'xsd:dateTime'">
+  <span class="w3-input w3-small">{{currVal}}</span>
+</form>
+<!--
+<form>
+  <div *ngSwitchDefault>{{leaf.type}}</div>
+</form>
+-->

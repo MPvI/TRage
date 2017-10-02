@@ -1,0 +1,41 @@
+<button *ngIf="!dataService.loaded" class="w3-btn w3-jumbo w3-light-green" (click)="dataService.init()" style="width: 100%; margin-top: 150px;">Retry</button>
+
+<ul class="w3-ul" *ngIf="displayNode" style="padding-top: 55px">
+
+
+  <li style="position: fixed; top: 0; left: 0; right: 0; z-index: 10; min-height: 53px;" class="w3-white md-elevation-z2" (click)="smartToggle()" (press)="showMenu = !showMenu">
+    <div  class="w3-display-container" style="min-height: 40px;">
+      <div *ngIf="!showMenu" class="w3-display-left w3-animate-opacity" style="font-size: smaller; width: 90%">
+        {{displayNode.parent ? displayNode.fullPath.split('.').reverse().slice(1).reverse().join(' > ') : 'List'}}
+      </div>
+      <div *ngIf="showMenu" class="w3-display-left w3-animate-opacity" style="width: 90%">
+        <i class="fa fa-plus w3-large w3-center w3-btn w3-light-green w3-round-small w3-ripple" aria-hidden="true" (click)="dataService.addObject({oname: displayNode.fullPath, pkey: ''}, displayNode)"></i>
+        <i class="fa fa-trash w3-large w3-center w3-btn w3-red w3-round-small w3-ripple" aria-hidden="true" (click)="dataService.delObject({oname: remove(), pkey: ''}, displayNode)"></i>
+        <i class="fa fa-download w3-large w3-center w3-btn w3-khaki w3-round-small w3-ripple" aria-hidden="true" (click)="dataService.export(displayNode.fullPath)"></i>
+        <i *ngIf="dataService.docLoaded()" class="fa fa-info w3-large w3-center w3-btn w3-blue w3-round-small w3-ripple" aria-hidden="true" (click)="dataService.getInfoFor(displayNode.fullPath)"></i>
+      </div>
+      <div class="w3-display-right w3-padding w3-large w3-ripple" (click)="toggleMenu($event)">
+        <i class="fa fa-ellipsis-v" aria-hidden="true" ></i>
+      </div>
+    </div>
+  </li>
+
+
+
+  <li *ngIf="displayNode.subNodes.length > 0" class="w3-ripple"><i class="w3-text-grey">Nodes</i></li>
+
+  <li *ngFor="let subNode of displayNode.subNodes" class="w3-ripple" (click)="dataService.setActiveNode(subNode)">
+      <span style="font-size: smaller">{{subNode.name}}</span>
+      <span class="w3-right"><i class="fa fa-arrow-right" aria-hidden="true"></i> </span>
+  </li>
+
+
+
+  <li *ngIf="displayNode.subLeafs.length > 0" (click)="displayNode.query()" class="w3-ripple"><i class="w3-text-grey">Leafs</i></li>
+
+  <li style="padding: 0;" *ngFor="let subLeaf of displayNode.subLeafs" class="w3-animate-zoom" (click)="subLeaf.query()">
+    <my-container [leaf]="subLeaf"></my-container>
+  </li>
+
+
+</ul>

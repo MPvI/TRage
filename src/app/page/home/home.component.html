@@ -1,0 +1,46 @@
+<div class="w3-container">
+  <h1>TRage2</h1>
+
+  <form class="w3-margin-bottom" (submit)="dataService.search(myInput.value)">
+    <input #myInput class="w3-input w3-validate w3-border-left w3-border-right w3-border-top w3-border-light-green" type="text" placeholder="Type here" required>
+    <button class="w3-btn-block w3-ripple w3-xlarge w3-light-green" type="submit">
+      <span class="w3-col s2 l2 m2 w3-left-align w3-border-right"><i class="fa fa-search"></i></span>
+      <span class="w3-col s10 m10 l10 w3-left-align w3-padding-left">Search</span>
+    </button>
+  </form>
+
+  <button class="w3-btn-block w3-ripple w3-xlarge w3-margin-bottom w3-blue" (click)="dataService.reboot()">
+    <span class="w3-col s2 l2 m2 w3-left-align w3-border-right"><i class="fa fa-refresh"></i></span>
+    <span class="w3-col s10 m10 l10 w3-left-align w3-padding-left">Reboot</span>
+  </button>
+
+  <button class="w3-btn-block w3-ripple w3-xlarge w3-margin-bottom w3-red" (click)="dataService.reset()">
+    <span class="w3-col s2 l2 m2 w3-left-align w3-border-right"><i class="fa fa-recycle"></i></span>
+    <span class="w3-col s10 m10 l10 w3-left-align w3-padding-left">Factory Reset</span>
+  </button>
+
+  <button class="w3-btn-block w3-ripple w3-xlarge w3-margin-bottom w3-khaki" (click)="dataService.export('Device.')">
+    <span class="w3-col s2 l2 m2 w3-left-align w3-border-right"><i class="fa fa-download"></i></span>
+    <span class="w3-col s10 m10 l10 w3-left-align w3-padding-left">Export Data Model</span>
+  </button>
+
+  <button class="w3-btn-block w3-ripple w3-xlarge w3-margin-bottom w3-grey" (click)="toggleInfo()">
+    <span class="w3-col s2 l2 m2 w3-left-align w3-border-right"><i class="fa fa-info-circle"></i></span>
+    <span class="w3-col s10 m10 l10 w3-left-align w3-padding-left">Info</span>
+  </button>
+</div>
+
+<div class="w3-animate-opacity" *ngIf="showInfo" style="height: 100%; width: 100%; position: fixed; background-color: rgb(0,0,0); background-color: rgba(0,0,0,0.8); color: #ffffff; z-index: 1; left: 0; top: 0">
+  <h3 class="w3-padding">Info <i class="fa fa-close w3-right" aria-hidden="true" (click)="toggleInfo()"></i></h3>
+  <table class="w3-table">
+    <tr><td>Abstract:</td><td>Configure homegateway via TR064v2</td></tr>
+    <tr><td>Status:</td><td>Work in progress</td></tr>
+    <tr><td>License:</td><td>MIT</td></tr>
+    <tr><td>Author:</td><td><a href="mailto:van_iterson@mail.de">Mattheus van Iterson</a></td></tr>
+    <tr><td>Company:</td><td><a href="https://www.telekom.de">Deutsche Telekom AG</a></td></tr>
+    <tr><td>Github:</td><td><a href="https://github.com/Ragingart/TRage">Project TRage</a></td></tr>
+    <tr><td>Tech:</td><td>Angular, w3.css, FontAwesome, Cordova</td></tr>
+    <tr><td>TODO:</td><td>Automated testing, scenario creation, ML</td></tr>
+    <tr><td>Reminder:</td><td>Quidquid agis, prudenter agas et respice finem.</td></tr>
+  </table>
+</div>

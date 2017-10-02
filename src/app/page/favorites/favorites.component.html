@@ -1,0 +1,22 @@
+<ul class="w3-ul" style="padding-top: 55px;" *ngIf="favoriteList">
+
+  <li style="position: fixed; top: 0; left: 0; right: 0; z-index: 10; min-height: 53px;" class="w3-white md-elevation-z2 w3-row">
+
+    <select [(ngModel)]="displayFavorite" (change)="favoriteService.setActiveFav(displayFavorite)" class="w3-select w3-col s7 m7 l7">
+      <option value="" disabled selected>Favorite</option>
+      <option class="w3-large" *ngFor="let fav of favoriteList" [ngValue]="fav">{{fav.name}}</option>
+    </select>
+
+    <div class="w3-container w3-col s5 m5 l5" style="min-height: 40px;">
+      <i class="fa fa-plus w3-large w3-left w3-btn w3-light-green w3-round-small w3-ripple" style="padding-top: 11px;padding-bottom: 11px;" aria-hidden="true" (click)="newFav()"></i>
+      <i class="fa fa-trash w3-large w3-right w3-btn w3-red w3-round-small w3-ripple" style="padding-top: 11px;padding-bottom: 11px;" aria-hidden="true" (click)="delFav()"></i>
+    </div>
+
+  </li>
+
+  <div *ngIf="displayFavorite">
+  <li style="padding: 0;" *ngFor="let leaf of displayFavorite.myLeafs" class="w3-row w3-animate-zoom w3-ripple" (click)="leaf.query()">
+    <my-container [leaf]="leaf"></my-container>
+  </li>
+  </div>
+</ul>
