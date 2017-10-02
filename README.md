@@ -7,7 +7,7 @@ Thanks to Carsten Kiefer.
 # Overview
 <img src="https://github.com/Ragingart/TRage/blob/master/screenshots/overview.png" width=200 />
 
-![Overview](https://github.com/Ragingart/TRage/blob/master/screenshots/search.png)
+<img src="https://github.com/Ragingart/TRage/blob/master/screenshots/search.png" width=200 />
 
 - Reboot
 - Factory reset
@@ -15,36 +15,36 @@ Thanks to Carsten Kiefer.
 - Search the data model
 
 # Data Model
-![Overview](https://github.com/Ragingart/TRage/blob/master/screenshots/nodelist.png)
+<img src="https://github.com/Ragingart/TRage/blob/master/screenshots/nodelist.png" width=200 />
 
-![Overview](https://github.com/Ragingart/TRage/blob/master/screenshots/leaflist.png)
+<img src="https://github.com/Ragingart/TRage/blob/master/screenshots/leaflist.png" width=200 />
 
-![Overview](https://github.com/Ragingart/TRage/blob/master/screenshots/leafqueried.png)
+<img src="https://github.com/Ragingart/TRage/blob/master/screenshots/leafqueried.png" width=200 />
 
 - Query leafs
 - Add objects
 - Change values
 
 # Favorites
-![Overview](https://github.com/Ragingart/TRage/blob/master/screenshots/addfavs.png)
+<img src="https://github.com/Ragingart/TRage/blob/master/screenshots/addfavs.png" width=200 />
 
-![Overview](https://github.com/Ragingart/TRage/blob/master/screenshots/selfavs.png)
+<img src="https://github.com/Ragingart/TRage/blob/master/screenshots/selfavs.png" width=200 />
 
-![Overview](https://github.com/Ragingart/TRage/blob/master/screenshots/toggle.png)
+<img src="https://github.com/Ragingart/TRage/blob/master/screenshots/toggle.png" width=200 />
 
 - Quickly add and remove favorites while browsing the data model
 
 # Profiles
-![Overview](https://github.com/Ragingart/TRage/blob/master/screenshots/profiles.png)
+<img src="https://github.com/Ragingart/TRage/blob/master/screenshots/profiles.png" width=200 />
 
 - Multiple profiles for different devices
 
 # Information
-![Overview](https://github.com/Ragingart/TRage/blob/master/screenshots/info.png)
+<img src="https://github.com/Ragingart/TRage/blob/master/screenshots/info.png" width=200 />
 
 - Check out the specification details for a parameter
 
 # Export
-![Overview](https://github.com/Ragingart/TRage/blob/master/screenshots/export.png)
+<img src="https://github.com/Ragingart/TRage/blob/master/screenshots/export.png" width=200 />
 
 - Export your data model to CSV
