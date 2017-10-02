@@ -5,7 +5,7 @@ A tool to configure your Homegateway directly through the TR181 data model via T
 Thanks to Carsten Kiefer.
 
 # Overview
-![Overview](https://github.com/Ragingart/TRage/blob/master/screenshots/overview.png)
+<img src="https://github.com/Ragingart/TRage/blob/master/screenshots/overview.png" width=200 />
 
 ![Overview](https://github.com/Ragingart/TRage/blob/master/screenshots/search.png)
 
